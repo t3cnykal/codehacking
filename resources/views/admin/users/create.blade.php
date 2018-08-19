@@ -1,0 +1,47 @@
+@extends('layouts.admin')
+
+@section('content')
+
+  <h1>Create Users</h1>
+
+  {!! Form::open(['method'=>'POST', 'action'=>'AdminUsersController@store']) !!}
+
+  {{csrf_field()}}
+
+      <div class="form-group">
+          {!! Form::label('name', 'Your Name:') !!}
+          {!! Form::text('name', null, ['class' => 'form-control']) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::label('email', 'E-mail:') !!}
+          {!! Form::email('email', null, ['class' => 'form-control']) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::label('role_id', 'Role:') !!}
+          {!! Form::select('role_id', ['' => 'Choose Options'] + $roles, null, ['class' => 'form-control']) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::label('is_active', 'Status:') !!}
+          {!! Form::select('is_active', array(1 => 'Active', 0 => 'No Active'), null, ['class' => 'form-control']) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::label('file', 'File:') !!}
+          {!! Form::file('file', null, ['class' => 'form-control']) !!}
+      </div>
+
+      <div class="form-group">
+          {!! Form::label('password', 'Password:') !!}
+          {!! Form::password('password', ['class' => 'form-control']) !!}
+      </div>
+
+      {!! Form::submit('Create User', ['class' => 'btn btn-info']) !!}
+
+  {!! Form::close() !!}
+
+  @include('includes.form-error')
+
+@endsection
