@@ -4,7 +4,7 @@
 
   <h1>Create Users</h1>
 
-  {!! Form::open(['method'=>'POST', 'action'=>'AdminUsersController@store']) !!}
+  {!! Form::open(['method'=>'POST', 'action'=>'AdminUsersController@store', 'files'=>true]) !!}
 
   {{csrf_field()}}
 
@@ -29,8 +29,8 @@
       </div>
 
       <div class="form-group">
-          {!! Form::label('file', 'File:') !!}
-          {!! Form::file('file', null, ['class' => 'form-control']) !!}
+          {!! Form::label('photo_id', 'Photo:') !!}
+          {!! Form::file('photo_id', null, ['class' => 'form-control']) !!}
       </div>
 
       <div class="form-group">
