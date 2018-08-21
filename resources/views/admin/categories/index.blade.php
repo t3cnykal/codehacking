@@ -29,7 +29,7 @@
               <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Title</th>
                     <th>Created</th>
                     <th>Updated</th>
                   </tr>
@@ -40,7 +40,7 @@
 
                       <tr>
                           <th>{{$category->id}}</th>
-                          <th>{{$category->name}}</th>
+                          <th> <a href="{{route('categories.edit', $category->id)}}">{{$category->name}}</a> </th>
                           <th>{{$category->created_at ? $category->created_at->diffForhumans() : ''}}</th>
                           <th>{{$category->updated_at ? $category->updated_at->diffForhumans() : ''}}</th>
                       </tr>
