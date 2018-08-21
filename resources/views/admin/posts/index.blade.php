@@ -24,10 +24,10 @@
                     <tr>
                         <th>{{$post->id}}</th>
                         <th><img height="50" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt=""></th>
-                        <th>{{$post->user->name}}</th>
+                        <th> <a href="{{route('posts.edit', $post->id)}}">{{$post->user->name}}</a> </th>
                         <th>{{$post->title}}</th>
                         <th>{{$post->category ? $post->category->name : 'Uncategorized'}}</th>
-                        <th>{{$post->body}}</th>
+                        <th>{{str_limit($post->body, 7)}}</th>
                         <th>{{$post->created_at->diffForhumans()}}</th>
                         <th>{{$post->updated_at->diffForhumans()}}</th>
                     </tr>
